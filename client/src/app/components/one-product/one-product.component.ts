@@ -48,4 +48,53 @@ export class OneProductComponent implements OnInit {
     })
   }
 
+  /* ---------------------------------------------------- STOCK ---------------------------------------------------- */
+
+  // Función para añadir stock
+
+  addStock() {
+    if (this.product.stock < 50) {
+      this.product.stock += 1;
+    } else { alert('No se puede sumar mas del stock maximo') }
+  }
+
+  // Función para remover stock
+
+  removeStock() {
+    if (0 < this.product.stock) {
+      this.product.stock -= 1;
+    } else { alert('No se puede restar mas') }
+  }
+
+  // Función para cambiar el minimo stock
+
+  addMinStock() {
+    this.product.stockMin += 1;
+  }
+
+  // Función para cambiar el minimo stock
+  
+  removeMinStock() {
+    if (0 < this.product.stockMin) {
+      this.product.stockMin -= 1;
+    } else { alert('No se puede restar mas') }
+  }
+
+  // Función para cambiar el maximo stock
+
+  addMaxStock() {
+    this.product.stockMax += 1;
+  }
+
+  // Función para cambiar el maximo stock
+
+  removeMaxStock() {
+    if (0 < this.product.stockMax) {
+      this.product.stockMax -= 1;
+    } else { alert('No se puede restar mas') }
+  }
+
+  /* -------------------------------------------------- FIN STOCK -------------------------------------------------- */
+
+
 }
