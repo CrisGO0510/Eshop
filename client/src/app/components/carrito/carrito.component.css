@@ -1,0 +1,17 @@
+.container{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5rem;
+}
+
+.datos {
+    height: 100%;
+    background-color: aqua;
+    grid-area: 1 / 1 / 2 / 3; 
+}
+
+.productos {
+    height: 100%;
+    background-color: aquamarine;
+    grid-area: 1 / 3 / 2 / 6;
+}
