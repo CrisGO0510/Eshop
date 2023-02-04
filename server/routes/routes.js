@@ -37,7 +37,7 @@ router.get('/book/:id', bookProduct);
 router.put('/buy', buyProducts);
 
 // ruta para que el administrador de la pagina pueda actualizar la informacion de un producto 
-router.put('/:id', updateProduct);
+router.put('/update/:id', updateProduct);
 
 // exportando rutas
 export default router;

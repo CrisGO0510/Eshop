@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 // Importa la interfaz "Form" para tipar los parametros
-import { Register, Login } from '../modules/Form';
+import { Register, Login, Product } from '../modules/Form';
 
 @Injectable({
   providedIn: 'root'
@@ -86,8 +86,8 @@ export class SingUpService {
 
   // Función para editar los valores del stock de un producto
 
-  updateProduct(id: string, stock: object) {
-    return this.http.put(`${this.API_URI}/rutanodeterminada/${id}`, stock);
+  updateProduct(id: string, stock: Product) {
+    return this.http.put(`${this.API_URI}/update/${id}`, stock);
   }
   // --------------------------------------FIN DE PRODUCTOS--------------------------------------
 

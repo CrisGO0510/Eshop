@@ -12,10 +12,11 @@ export interface Login {
     password: string;
 }
 
-export interface product {
+export interface Product {
     name: string;
-    username: string;
-    email: string;
-    phone: string;
-    website: string;
+    details: string;
+    price: number;
+    stockMin: number;
+    stockMax: number;
+    stock: number;
   }

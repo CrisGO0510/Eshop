@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Product } from 'src/app/modules/Form';
 import { SingUpService } from 'src/app/services/sing-up.service';
 
 
@@ -18,12 +19,12 @@ export class OneProductComponent implements OnInit {
     private services: SingUpService
   ) {
   }
-  
+
   // Variables que determinarán si el usuario esta logeado y que tipo de loggin es, esto
   // Para mostrar una u otra caracteristica
 
-  adminConfirmation:boolean = localStorage.getItem('token') == 'true';
-  userConfirmation:boolean = localStorage.getItem('token') == 'false';
+  adminConfirmation: boolean = localStorage.getItem('token') == 'true';
+  userConfirmation: boolean = localStorage.getItem('token') == 'false';
 
   // Variable que será usada para identificar que producto traer
   id: any = '';
@@ -55,6 +56,20 @@ export class OneProductComponent implements OnInit {
     })
   }
 
+  // Función para enviar al backend el stock (Todos)
+  updateProduct(gId: string, jStock: Product) {
+    this.services.updateProduct(gId, jStock).subscribe({
+      next: (v) => console.log(v),
+      error: (e) => console.log(e)
+    })
+  }
+  
+  // Función para guardar los cambios del stock
+  saveChanges() {
+    this.updateProduct(this.id, this.product)
+  }
+
+
   /* ---------------------------------------------------- STOCK ---------------------------------------------------- */
 
   // Función para añadir stock
@@ -80,7 +95,7 @@ export class OneProductComponent implements OnInit {
   }
 
   // Función para cambiar el minimo stock
-  
+
   removeMinStock() {
     if (0 < this.product.stockMin) {
       this.product.stockMin -= 1;
@@ -101,25 +116,19 @@ export class OneProductComponent implements OnInit {
     } else { alert('No se puede restar mas') }
   }
 
-// User
+  // User
 
-takeStock = 0;
+  takeStock = 0;
 
-addUserStock(){
-  this.takeStock += 1;
-}
+  addUserStock() {
+    this.takeStock += 1;
+  }
 
-removeUserStock(){
-  if (0 < this.takeStock) {
-    this.takeStock -= 1;
-  } else { alert('No se puede restar mas') }
-}
-
-
-moveUserS(){
-  console.log(this.takeStock);
-}
-
+  removeUserStock() {
+    if (0 < this.takeStock) {
+      this.takeStock -= 1;
+    } else { alert('No se puede restar mas') }
+  }
 
   /* -------------------------------------------------- FIN STOCK -------------------------------------------------- */
 

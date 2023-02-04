@@ -31,7 +31,7 @@
     <ng-template class="user" #hola>
         <div *ngIf="userConfirmation; else sad" class="btn-TakeStock">
             <button mat-raised-button color="primary" (click)="removeUserStock()" ><mat-icon>remove_circle_outline</mat-icon></button>
-            <button mat-raised-button color="primary" (click)="moveUserS()" >{{takeStock}}</button>
+            <button mat-raised-button color="primary" >{{takeStock}}</button>
             <button mat-raised-button color="primary" (click)="addUserStock()"><mat-icon>add_circle_outline</mat-icon></button>
             <p>{{takeStock * product.price}}</p>
         </div>
@@ -40,5 +40,5 @@
             <a routerLink="/login">¿Deseas iniciar sesión?</a>
         </ng-template>
     </ng-template>
-
+    <button mat-raised-button color="primary" (click)="saveChanges()" >Guardar Cambios</button>
 </div>
