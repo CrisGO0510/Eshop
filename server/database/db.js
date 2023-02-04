@@ -2,7 +2,7 @@
 import { Sequelize } from 'sequelize';
 
 // iniciando la conexion con la base de datos
-const db = new Sequelize('db_angularprueba', 'root', 'SantiagoTorifa03060187', {
+const db = new Sequelize('db_angularprueba', 'root', 'cris0510', {
   host: 'localhost',
   dialect: 'mysql'
 });

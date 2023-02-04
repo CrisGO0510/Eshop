@@ -85,7 +85,7 @@ export class LoginComponent implements OnInit {
         if (v.root === true) {
           console.log('admin');
           localStorage.setItem('token', v.root);
-          this.router.navigate(['/editAdmin']);
+          this.router.navigate(['/']);
           setTimeout(() => {
             location.reload();
           }, 0);

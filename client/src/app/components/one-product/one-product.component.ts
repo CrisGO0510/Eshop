@@ -16,7 +16,14 @@ export class OneProductComponent implements OnInit {
     // Inyectamos SingUpService para usar los metodos http (getOneProduct) y así traer los datos de
     // los productos desde la base de datos
     private services: SingUpService
-  ) { }
+  ) {
+  }
+  
+  // Variables que determinarán si el usuario esta logeado y que tipo de loggin es, esto
+  // Para mostrar una u otra caracteristica
+
+  adminConfirmation:boolean = localStorage.getItem('token') == 'true';
+  userConfirmation:boolean = localStorage.getItem('token') == 'false';
 
   // Variable que será usada para identificar que producto traer
   id: any = '';
@@ -93,6 +100,26 @@ export class OneProductComponent implements OnInit {
       this.product.stockMax -= 1;
     } else { alert('No se puede restar mas') }
   }
+
+// User
+
+takeStock = 0;
+
+addUserStock(){
+  this.takeStock += 1;
+}
+
+removeUserStock(){
+  if (0 < this.takeStock) {
+    this.takeStock -= 1;
+  } else { alert('No se puede restar mas') }
+}
+
+
+moveUserS(){
+  console.log(this.takeStock);
+}
+
 
   /* -------------------------------------------------- FIN STOCK -------------------------------------------------- */
 

@@ -10,7 +10,7 @@
         <p>Precio = {{product.price}}</p>
         <p>Stock disponible = {{product.stock}}</p>
 
-    <div *ngIf="" class="admin">
+    <div *ngIf="adminConfirmation; else hola;" class="admin">
         <div class="btn-stock">
             <button mat-raised-button color="primary" (click)="removeStock()" ><mat-icon>remove_circle_outline</mat-icon></button>
             <button mat-raised-button color="primary" >Stock disponible = {{product.stock}}</button>
@@ -27,4 +27,18 @@
             <button mat-raised-button color="primary" (click)="addMaxStock()"><mat-icon>add_circle_outline</mat-icon></button>
         </div>
     </div>
+
+    <ng-template class="user" #hola>
+        <div *ngIf="userConfirmation; else sad" class="btn-TakeStock">
+            <button mat-raised-button color="primary" (click)="removeUserStock()" ><mat-icon>remove_circle_outline</mat-icon></button>
+            <button mat-raised-button color="primary" (click)="moveUserS()" >{{takeStock}}</button>
+            <button mat-raised-button color="primary" (click)="addUserStock()"><mat-icon>add_circle_outline</mat-icon></button>
+            <p>{{takeStock * product.price}}</p>
+        </div>
+        <ng-template #sad>
+            <p style="color: red;" >Necesitas iniciar sesión para acceder al carrito de compras</p>
+            <a routerLink="/login">¿Deseas iniciar sesión?</a>
+        </ng-template>
+    </ng-template>
+
 </div>

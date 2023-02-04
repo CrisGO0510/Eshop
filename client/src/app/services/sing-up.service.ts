@@ -10,9 +10,9 @@ export class SingUpService {
 
   // Variable que contendrá la dirección de la api
 
-  // API_URI = "http://localhost:3900/api"
+  API_URI = "http://localhost:3900/api"
 
-  API_URI = "http://10.253.6.15:3900/api"
+  // API_URI = "http://10.253.6.15:3900/api"
 
 
   // Generamos una variable llamada 'http' con el clase de 'httpClient' para poder usar sus metodos
@@ -37,8 +37,6 @@ export class SingUpService {
   }
 
   // Metodo para que el admin pueda cambiar los datos de infomación de su cuenta (password, direccion correo, telefono, email)
-  // TODO: Tenemos que corregir la ruta de la API_URI
-
   updateAdmin(admin: Register) {
     return this.http.put(`${this.API_URI}/users/admin`, admin);
   }
@@ -88,7 +86,7 @@ export class SingUpService {
 
   // Función para editar los valores del stock de un producto
 
-  updateProduct(id: string, stock: string) {
+  updateProduct(id: string, stock: object) {
     return this.http.put(`${this.API_URI}/rutanodeterminada/${id}`, stock);
   }
   // --------------------------------------FIN DE PRODUCTOS--------------------------------------
