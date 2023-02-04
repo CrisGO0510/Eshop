@@ -12,16 +12,9 @@ body {
     min-height: 85%;
 }
 
-/* Comentario prueba */
-
-.borrar {
-    display: block;
-}
-
-
 main {
     display: grid;
-    background-color: white;
+    background-color: antiquewhite;
     min-height: 100vh;
     min-width: 100vw;
     grid-template-rows: auto 1fr auto;

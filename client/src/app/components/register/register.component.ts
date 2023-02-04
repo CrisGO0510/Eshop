@@ -91,9 +91,18 @@ export class RegisterComponent implements OnInit {
         if (v.root === false){
           console.log('no admin');
           localStorage.setItem('token', v.root);
-          location.reload();
           this.router.navigate(['/shoppingcart']);
-        }
+          setTimeout(() => {
+            location.reload();
+          }, 0);
+        } else if (v.root === true){
+          console.log('Admin');
+          localStorage.setItem('token', v.root);
+          this.router.navigate(['/']);
+          setTimeout(() => {
+            location.reload();
+          }, 0);
+        } 
         
       },
       error: (e) => console.log(e),

@@ -16,16 +16,21 @@
     height: 400px;
     width: 300px;
     background-color: #8ad6f4;
+    border-radius: 10%;
 }
 
 img {
     width: 80px;
     height: 80px;   
+    border-radius: 10%;
 }
 
 h1 {
     margin-top: 160px;
     align-self: center;
+    color: blueviolet;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 100px;
 }
 
 .container-center-inicio {

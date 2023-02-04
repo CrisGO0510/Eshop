@@ -89,6 +89,13 @@ export class SingUpService {
   updateProduct(id: string, stock: Product) {
     return this.http.put(`${this.API_URI}/update/${id}`, stock);
   }
+
+  stock:object = [{},{},{},{},{},{},{},{},{},{}];
+
+  getStock(va:object){
+    this.stock = va;
+  }
+
   // --------------------------------------FIN DE PRODUCTOS--------------------------------------
 
 

@@ -20,6 +20,7 @@ export class OneProductComponent implements OnInit {
   ) {
   }
 
+
   // Variables que determinarán si el usuario esta logeado y que tipo de loggin es, esto
   // Para mostrar una u otra caracteristica
 
@@ -118,7 +119,6 @@ export class OneProductComponent implements OnInit {
 
   // User
 
-
   // Array que contendrá los valores de la id del producto y el stock del user para subir al localstorage
   arrayStock: any = [{},{},{},{},{},{},{},{},{},{}];
   // Variable para gestionar el numero de productos que quiere llevar el cliente
@@ -127,7 +127,6 @@ export class OneProductComponent implements OnInit {
   // Función para añadirle 1 stock a la variable userStock
   addUserStock() {
     this.userStock += 1;
-    console.log(this.arrayStock);
   }
 
   // Función para restarle 1 stock a la variable userStock
@@ -135,16 +134,20 @@ export class OneProductComponent implements OnInit {
     if (0 < this.userStock) {
       this.userStock -= 1;
     } else { alert('No se puede restar mas') }
-    console.log(this.arrayStock);
   }
 
   // Función para añadir al array un objeto con la id y el numero de stocks del producto
   imp() {
     this.arrayStock[this.id - 1].id = this.id;
     this.arrayStock[this.id - 1].userStock = this.userStock;
-    console.log(this.arrayStock[this.id - 1]);
+    this.services.getStock(this.arrayStock);
+    console.log(this.arrayStock);
+    console.log(this.services.stock);
   }
 
+  getalgo(){
+    console.log(this.services.stock);
+  }
   /* -------------------------------------------------- FIN STOCK -------------------------------------------------- */
 
 
