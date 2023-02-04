@@ -10,6 +10,8 @@
         <p>Precio = {{product.price}}</p>
         <p>Stock disponible = {{product.stock}}</p>
 
+<!-- ------------------------------------ ADMIN ------------------------------------------------->
+
     <div *ngIf="adminConfirmation; else hola;" class="admin">
         <div class="btn-stock">
             <button mat-raised-button color="primary" (click)="removeStock()" ><mat-icon>remove_circle_outline</mat-icon></button>
@@ -26,19 +28,20 @@
             <button mat-raised-button color="primary" >Stock maximo = {{product.stockMax}}</button>
             <button mat-raised-button color="primary" (click)="addMaxStock()"><mat-icon>add_circle_outline</mat-icon></button>
         </div>
+        <button mat-raised-button color="primary" (click)="saveChanges()" >Guardar Cambios</button>
     </div>
-
+<!-- ------------------------------------ USER ------------------------------------------------->
     <ng-template class="user" #hola>
         <div *ngIf="userConfirmation; else sad" class="btn-TakeStock">
             <button mat-raised-button color="primary" (click)="removeUserStock()" ><mat-icon>remove_circle_outline</mat-icon></button>
-            <button mat-raised-button color="primary" >{{takeStock}}</button>
+            <button mat-raised-button color="primary" (click)="imp()" >{{userStock}}</button>
             <button mat-raised-button color="primary" (click)="addUserStock()"><mat-icon>add_circle_outline</mat-icon></button>
-            <p>{{takeStock * product.price}}</p>
+            <p *ngIf="userStock != 0">${{userStock * product.price}}</p>
         </div>
+<!-- -------------------------------- NO REGISTERED -------------------------------------------->
         <ng-template #sad>
             <p style="color: red;" >Necesitas iniciar sesión para acceder al carrito de compras</p>
             <a routerLink="/login">¿Deseas iniciar sesión?</a>
         </ng-template>
     </ng-template>
-    <button mat-raised-button color="primary" (click)="saveChanges()" >Guardar Cambios</button>
 </div>

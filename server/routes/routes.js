@@ -30,10 +30,10 @@ router.post('/users/signup', createUser);
   // actualizar el perfil del usuario admin
 router.put('/users/admin', updateAdmin);
 
-// ruta para hacer la recerva de un articulo para un usuario
+// ruta para hacer la reserva de un articulo para un usuario
 router.get('/book/:id', bookProduct);
 
-// ruta para confirmar la compra de los articulos que fueron recervador por un usuario
+// ruta para confirmar la compra de los articulos que fueron reservados por un usuario
 router.put('/buy', buyProducts);
 
 // ruta para que el administrador de la pagina pueda actualizar la informacion de un producto 

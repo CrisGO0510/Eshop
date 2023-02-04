@@ -60,10 +60,10 @@ export class OneProductComponent implements OnInit {
   updateProduct(gId: string, jStock: Product) {
     this.services.updateProduct(gId, jStock).subscribe({
       next: (v) => console.log(v),
-      error: (e) => console.log(e)
+      error: (e) => console.log(e),
     })
   }
-  
+
   // Función para guardar los cambios del stock
   saveChanges() {
     this.updateProduct(this.id, this.product)
@@ -118,16 +118,31 @@ export class OneProductComponent implements OnInit {
 
   // User
 
-  takeStock = 0;
 
+  // Array que contendrá los valores de la id del producto y el stock del user para subir al localstorage
+  arrayStock: any = [{},{},{},{},{},{},{},{},{},{}];
+  // Variable para gestionar el numero de productos que quiere llevar el cliente
+  userStock: number = 0;
+
+  // Función para añadirle 1 stock a la variable userStock
   addUserStock() {
-    this.takeStock += 1;
+    this.userStock += 1;
+    console.log(this.arrayStock);
   }
 
+  // Función para restarle 1 stock a la variable userStock
   removeUserStock() {
-    if (0 < this.takeStock) {
-      this.takeStock -= 1;
+    if (0 < this.userStock) {
+      this.userStock -= 1;
     } else { alert('No se puede restar mas') }
+    console.log(this.arrayStock);
+  }
+
+  // Función para añadir al array un objeto con la id y el numero de stocks del producto
+  imp() {
+    this.arrayStock[this.id - 1].id = this.id;
+    this.arrayStock[this.id - 1].userStock = this.userStock;
+    console.log(this.arrayStock[this.id - 1]);
   }
 
   /* -------------------------------------------------- FIN STOCK -------------------------------------------------- */

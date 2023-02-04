@@ -51,21 +51,21 @@ export const updateProduct = async (req, res) => {
   }
 }
 
-// funcion para recervarle un producto a un cliente
+// funcion para reservarle un producto a un cliente
 export const bookProduct = (req, res) => {
   try {
     // * realiza la recerva del producto
     if (req.query.f === 'unbook') {
-      // aumenta la cantidad de productos en recerva
+      // aumenta la cantidad de productos en reserva
       productsStock[req.params.id]++;
-      // devuelve la respuesta de la recerva
+      // devuelve la respuesta de la reserva
       return res.json('Unbooked');
     } else if (req.query.f === 'book') {
       // se asegura de que la cantidad de recervados no sea 0
       if (productsStock[req.params.id] == 0) return res.json('Stockout')
-      // disminuye la cantidad de productos en recerva
+      // disminuye la cantidad de productos en reserva
       productsStock[req.params.id]--;
-      // devuelve la respuesta de la recerva
+      // devuelve la respuesta de la reserva
       return res.json('Booked');
     }
     res.status(400).json('Bad request');
