@@ -1,3 +1,4 @@
+import { _isNumberValue } from '@angular/cdk/coercion';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/modules/Form';
@@ -33,6 +34,8 @@ export class OneProductComponent implements OnInit {
   product: any = {}
   // Array que contendrá todas las imagenes de los productos en forma de objetos
   images: any = {}
+
+  
   ngOnInit(): void {
     // Función para que la variable id tenga el parametro de la url
     this.id = this.route.snapshot.paramMap.get('id');
@@ -40,14 +43,21 @@ export class OneProductComponent implements OnInit {
     this.getOneProduct(this.id);
     this.getOneImage(this.id);
     this.arrayStock = this.services.stock;
+    this.getUserStock(this.id);
   }
+
+  // Función para traer el valor del stock del usuario 
+  getUserStock(gId:number){
+    if (_isNumberValue(this.services.getUserStock(gId))) {
+      this.userStock = this.services.getUserStock(gId);
+    }
+  } 
 
   // Funcion par traer el producto con la id y retornarlo en la varible product
   getOneProduct(gId: string) {
     this.services.getOneProduct(gId).subscribe({
       next: (v) => this.product = v,
-      error: (e) => console.log(e),
-      complete: () => console.log(this.product)
+      error: (e) => console.log(e)
     })
   }
 
