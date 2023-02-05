@@ -34,7 +34,6 @@ import { CarritoComponent } from './components/carrito/carrito.component'
 import { InicioComponent } from './components/inicio/inicio.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { StockComponent } from './components/stock/stock.component';
 import { OneProductComponent } from './components/one-product/one-product.component';
 import { EditAdminComponent } from './components/edit-admin/edit-admin.component';
 
@@ -50,7 +49,6 @@ import { EditAdminComponent } from './components/edit-admin/edit-admin.component
     InicioComponent,
     LoginComponent,
     RegisterComponent,
-    StockComponent,
     OneProductComponent,
     EditAdminComponent
   ],

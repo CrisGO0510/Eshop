@@ -39,13 +39,15 @@ export class OneProductComponent implements OnInit {
     // Función que llamará el producto con la id
     this.getOneProduct(this.id);
     this.getOneImage(this.id);
+    this.arrayStock = this.services.stock;
   }
 
   // Funcion par traer el producto con la id y retornarlo en la varible product
   getOneProduct(gId: string) {
     this.services.getOneProduct(gId).subscribe({
       next: (v) => this.product = v,
-      error: (e) => console.log(e)
+      error: (e) => console.log(e),
+      complete: () => console.log(this.product)
     })
   }
 
@@ -120,7 +122,7 @@ export class OneProductComponent implements OnInit {
   // User
 
   // Array que contendrá los valores de la id del producto y el stock del user para subir al localstorage
-  arrayStock: any = [{},{},{},{},{},{},{},{},{},{}];
+  arrayStock: any = [];
   // Variable para gestionar el numero de productos que quiere llevar el cliente
   userStock: number = 0;
 
@@ -139,13 +141,11 @@ export class OneProductComponent implements OnInit {
   // Función para añadir al array un objeto con la id y el numero de stocks del producto
   imp() {
     this.arrayStock[this.id - 1].id = this.id;
+    this.arrayStock[this.id - 1].name = this.product.name
+    this.arrayStock[this.id - 1].price = this.product.price
     this.arrayStock[this.id - 1].userStock = this.userStock;
+    this.arrayStock[this.id - 1].img = this.images;
     this.services.getStock(this.arrayStock);
-    console.log(this.arrayStock);
-    console.log(this.services.stock);
-  }
-
-  getalgo(){
     console.log(this.services.stock);
   }
   /* -------------------------------------------------- FIN STOCK -------------------------------------------------- */

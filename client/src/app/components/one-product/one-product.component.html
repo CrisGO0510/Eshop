@@ -34,7 +34,7 @@
     <ng-template class="user" #hola>
         <div *ngIf="userConfirmation; else sad" class="btn-TakeStock">
             <button mat-raised-button color="primary" (click)="removeUserStock()" ><mat-icon>remove_circle_outline</mat-icon></button>
-            <button mat-raised-button color="primary" (click)="imp()" >{{userStock}}</button>
+            <button mat-raised-button color="primary"  >{{userStock}}</button>
             <button mat-raised-button color="primary" (click)="addUserStock()"><mat-icon>add_circle_outline</mat-icon></button>
             <p *ngIf="userStock != 0">${{userStock * product.price}}</p>
         </div>
@@ -44,5 +44,5 @@
             <a routerLink="/login">¿Deseas iniciar sesión?</a>
         </ng-template>
     </ng-template>
-    <button mat-raised-button color="primary" (click)="getalgo()" >A</button>
+    <button mat-raised-button color="primary" (click)="imp()" >Agregar al carrito<mat-icon>add_shopping_cart</mat-icon></button>
 </div>
