@@ -1,4 +1,5 @@
 .container {
+    margin-top: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,4 +25,8 @@
 
 .register > button{
     margin: 15px;
+}
+
+.register h1 {
+    text-align: center;
 }

@@ -2,10 +2,12 @@
     <h1>Postres Magdalena</h1>
     <div class="container">
         <div class="products" *ngFor="let product of products; index as i">
-            <div class="imagen">
-                <img src="{{images[i + 1][0]}}">
-                <img src="{{images[i + 1][1]}}">
-                <img src="{{images[i + 1][2]}}">
+            <div class="images-slide">
+                <ul>
+                    <li><img class="slide1" src="{{images[i + 1][0]}}"></li>
+                    <li><img class="slide2" src="{{images[i + 1][1]}}"></li>
+                    <li><img class="slide3" src="{{images[i + 1][2]}}"></li>
+                </ul>
             </div>
             <br />
             <a routerLink="/product/{{i+1}}">{{product.name}}</a>

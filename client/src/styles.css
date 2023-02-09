@@ -14,7 +14,7 @@ body {
 
 main {
     display: grid;
-    background-color: antiquewhite;
+    background-color: #6ea9f7;
     min-height: 100vh;
     min-width: 100vw;
     grid-template-rows: auto 1fr auto;

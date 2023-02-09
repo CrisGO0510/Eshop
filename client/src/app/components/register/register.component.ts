@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Register } from 'src/app/modules/Form';
 // Servicio para realizar los metodos http
 import { SingUpService } from '../../services/sing-up.service';
@@ -91,7 +91,7 @@ export class RegisterComponent implements OnInit {
         if (v.root === false){
           console.log('no admin');
           localStorage.setItem('token', v.root);
-          this.router.navigate(['/shoppingcart']);
+          this.router.navigate(['/login']);
           setTimeout(() => {
             location.reload();
           }, 0);
@@ -103,11 +103,14 @@ export class RegisterComponent implements OnInit {
             location.reload();
           }, 0);
         } 
-        
       },
       error: (e) => console.log(e),
       complete: () => console.log('complete')
     })
 
+  }
+
+  login() {
+    this.router.navigate(['/']);
   }
 }

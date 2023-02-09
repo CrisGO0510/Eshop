@@ -2,7 +2,8 @@
     <div class="datos">
         <h1>Carrito</h1>
         <div *ngFor="let dato of stock; index as i">
-            <div *ngIf="dato.id !== undefined && dato.userStock != 0 "><a routerLink="/product/{{i + 1}}">{{dato.name}}</a></div>
+            <div *ngIf="dato.id !== undefined && dato.userStock != 0 "><a
+                    routerLink="/product/{{i + 1}}">{{dato.name}}</a></div>
             <div *ngIf="dato.id !== undefined && dato.userStock != 0 ">stock = {{dato.userStock}}</div>
         </div>
         <div class="buy" *ngIf="total != 0">
@@ -12,9 +13,16 @@
     </div>
     <div class="productos">
         <div *ngFor="let dato of stock; index as i">
-            <img *ngIf="dato.id !== undefined && dato.userStock != 0" src="{{dato.img[dato.id][0]}}">
-            <img *ngIf="dato.id !== undefined && dato.userStock != 0" src="{{dato.img[dato.id][1]}}">
-            <img *ngIf="dato.id !== undefined && dato.userStock != 0" src="{{dato.img[dato.id][2]}}">
+            <div class="images-slide margen">
+                <ul>
+                    <li><img class="slide1" *ngIf="dato.id !== undefined && dato.userStock != 0"
+                            src="{{dato.img[dato.id][0]}}"></li>
+                    <li><img class="slide2" *ngIf="dato.id !== undefined && dato.userStock != 0"
+                            src="{{dato.img[dato.id][1]}}"></li>
+                    <li><img class="slide3" *ngIf="dato.id !== undefined && dato.userStock != 0"
+                            src="{{dato.img[dato.id][2]}}"></li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
